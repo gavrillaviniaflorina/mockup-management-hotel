@@ -68,9 +68,39 @@ public class ViewAdministrator {
         return text;
     }
 
-    public String meniu(){
+    private String meniu(){
         String text="";
-        text+="Apasati tasta 1 pentru a "
+        text+="Apasati tasta 0 pentru a incheia\n";
+        text+="Apasati tasta 1 pentru a accesa camerele\n";
+        text+="Apasati tasta 2 pentru a accesa clientii\n";
+        text+="Apasati tasta 3 pentru a accesa facturile\n";
+        text+="Apasati tasta 4 pentru a accesa rezervarile\n";
+        return text;
+    }
+
+    public void play(){
+        System.out.println(meniu());
+        boolean run=true;
+
+        while(run){
+            int alegere=Integer.parseInt(scanner.nextLine());
+            switch (alegere){
+                case 0:
+                    run=false;
+                    break;
+                case 1:
+                    playCamere();
+                    break;
+                case 2:
+                    playClient();
+                    break;
+                case 3:
+                    playFacturi();
+                    break;
+                case 4:
+
+            }
+        }
     }
 
 
