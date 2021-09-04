@@ -12,17 +12,19 @@ public class Angajat implements Comparable<Angajat>{
     private String nume;
     private String prenume;
     private String nrTelefon;
+    private String parola;
 
-    public Angajat(String nume, String prenume, String nrTelefon) {
+    public Angajat(String nume, String prenume, String nrTelefon,String parola) {
         this.nume = nume;
         this.prenume = prenume;
         this.nrTelefon = nrTelefon;
+        this.parola=parola;
     }
 
     @Override
     public String toString(){
         String text="";
-        text+=this.getAngajat_id()+","+this.getNume()+","+this.getPrenume()+","+this.getNrTelefon();
+        text+=this.getAngajat_id()+","+this.getNume()+","+this.getPrenume()+","+this.getNrTelefon()+","+this.parola;
         return text;
     }
 

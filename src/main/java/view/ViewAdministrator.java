@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class ViewAdministrator {
 
+   private Angajat angajat;
     private AngajatController angajati;
     private CameraController camere;
     private ClientController clienti;
@@ -14,7 +15,8 @@ public class ViewAdministrator {
     private RezervareController rezervari;
     private Scanner scanner;
 
-    public ViewAdministrator(){
+    public ViewAdministrator(Angajat angajat){
+        this.angajat=angajat;
         this.angajati=new AngajatController();
         this.camere=new CameraController();
         this.clienti=new ClientController();
@@ -78,30 +80,8 @@ public class ViewAdministrator {
         return text;
     }
 
-    public void play(){
-        System.out.println(meniu());
-        boolean run=true;
 
-        while(run){
-            int alegere=Integer.parseInt(scanner.nextLine());
-            switch (alegere){
-                case 0:
-                    run=false;
-                    break;
-                case 1:
-                    playCamere();
-                    break;
-                case 2:
-                    playClient();
-                    break;
-                case 3:
-                    playFacturi();
-                    break;
-                case 4:
 
-            }
-        }
-    }
 
 
 
@@ -232,6 +212,36 @@ public class ViewAdministrator {
         }
     }
 
+    public void play(){
+        System.out.println(meniu());
+        boolean run=true;
+
+        while(run){
+            int alegere=Integer.parseInt(scanner.nextLine());
+            switch (alegere){
+                case 0:
+                    run=false;
+                    break;
+                case 1:
+                    playCamere();
+                    break;
+                case 2:
+                    playClient();
+                    break;
+                case 3:
+                    playFacturi();
+                    break;
+                case 4:
+                    playRezervari();
+                    break;
+                default:
+                    System.out.println(meniu());
+                    break;
+
+            }
+        }
+    }
+
 
 
 
@@ -258,8 +268,10 @@ public class ViewAdministrator {
         String telefon=scanner.nextLine();
         System.out.println("Introduceti adresa:");
         String adresa=scanner.nextLine();
+        System.out.println("Introduceti parola:");
+        String parola=scanner.nextLine();
 
-        Client client=new Client(nume,prenume,telefon,adresa);
+        Client client=new Client(nume,prenume,telefon,adresa,parola);
         clienti.insert(client);
     }
 

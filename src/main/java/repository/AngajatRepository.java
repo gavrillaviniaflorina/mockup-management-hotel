@@ -36,8 +36,8 @@ public class AngajatRepository {
 
     public void insert(Angajat angajat){
         String insert="";
-        insert+="insert into angajati (nume,prenume,nrTelefon ) values (";
-        insert+=String.format("'%s','%s','%s'",angajat.getNume(),angajat.getPrenume(),angajat.getNrTelefon());
+        insert+="insert into angajati (nume,prenume,nrTelefon,parola ) values (";
+        insert+=String.format("'%s','%s','%s','%s'",angajat.getNume(),angajat.getPrenume(),angajat.getNrTelefon(),angajat.getParola());
         insert+=");";
         executeStatement(insert);
     }
@@ -92,7 +92,7 @@ public class AngajatRepository {
       List<Angajat> angajati=new ArrayList<>();
       try{
           while(set.next()){
-              angajati.add(new Angajat(set.getInt(1),set.getString(2),set.getString(3), set.getString(4)));
+              angajati.add(new Angajat(set.getInt(1),set.getString(2),set.getString(3), set.getString(4),set.getString(5)));
           }
       }catch (Exception e){
           e.printStackTrace();

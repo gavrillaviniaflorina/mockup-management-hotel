@@ -36,8 +36,8 @@ public class ClientRepository {
 
         public void insert(Client client){
             String insert="";
-            insert+="insert into clienti(nume,prenume,nrTelefon,adresa) values (";
-            insert+=String.format("'%s','%s','%s','%s'",client.getNume(),client.getPrenume(),client.getNrTelefon(),client.getAdresa());
+            insert+="insert into clienti(nume,prenume,nrTelefon,adresa,parola) values (";
+            insert+=String.format("'%s','%s','%s','%s','%s'",client.getNume(),client.getPrenume(),client.getNrTelefon(),client.getAdresa(),client.getParola());
             insert+=");";
             executeStatement(insert);
 
@@ -102,7 +102,7 @@ public class ClientRepository {
             List<Client> clienti=new ArrayList<>();
             try{
                 while(set.next()){
-                   clienti.add(new Client(set.getInt(1),set.getString(2), set.getString(3),set.getString(4),set.getString(5)));
+                   clienti.add(new Client(set.getInt(1),set.getString(2), set.getString(3),set.getString(4),set.getString(5),set.getString(6)));
                 }
             }catch (Exception e){
                 e.printStackTrace();

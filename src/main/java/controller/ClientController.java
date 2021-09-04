@@ -40,4 +40,31 @@ public class ClientController {
           System.out.println(client);
       }
     }
+
+    //todo: functie careia ii dau numele unui client si imi returneaza parola lui
+    public String parola(String nume){
+
+        for(Client client: clienti.totiClientii()){
+            if(client.getNume().equals(nume)){
+                return client.getParola();
+            }
+        }
+        return null;
+
+
+    }
+
+
+    //todo:returneaza toat clientul dupa nume
+
+    public Client client(String nume){
+        for (Client client:clienti.totiClientii()){
+            if(client.getNume().equals(nume)){
+                return client;
+            }
+
+        }
+
+        return null;
+    }
 }

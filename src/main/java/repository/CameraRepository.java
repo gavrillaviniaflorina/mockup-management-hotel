@@ -36,7 +36,7 @@ public class CameraRepository {
     public void insert(Camera camera){
        String insert="";
        insert+="insert into camera(tip_camera,numar,hotel_id) values (";
-       insert+=String.format("'%s',%d",camera.getTip_camera(),camera.getNumar(),camera.getHotel_id());
+       insert+=String.format("'%s',%d,%d",camera.getTip_camera(),camera.getNumar(),camera.getHotel_id());
        insert+=");";
        executeStatement(insert);
 
