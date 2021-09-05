@@ -15,20 +15,52 @@ public class CameraController {
         this.camere=new CameraRepository();
     }
 
+    private boolean exist(Camera camera){
+
+       List<Camera> cameras=toate();
+
+        for (Camera camera1: cameras){
+            if(camera1.equals(camera)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void insert(Camera camera){
-        camere.insert(camera);
+        if(exist(camera)==false) {
+            System.out.println("Camera a fost adaugata.");
+            camere.insert(camera);
+        }else{
+            System.out.println("Camera exista deja.");
+        }
     }
 
     public void delete(int id){
-        camere.delete(id);
+        if(exist(cameraId(id))==true) {
+            camere.delete(id);
+            System.out.println("Camera a fost stearsa.");
+        }else{
+            System.out.println("Camera nu exista pt a o putea sterge.");
+        }
     }
 
     public void updateTipCamera(int camera_id,String nou){
-        camere.updateTipCamera(camera_id, nou);
+        if(exist(cameraId(camera_id))==true) {
+            camere.updateTipCamera(camera_id, nou);
+            System.out.println("Camera a fost updatata. ");
+        }else{
+            System.out.println("Camera nu exista pt a o putea updata.");
+        }
     }
 
     public void updateNrCamere( int camera_id,int nr){
-        camere.updateNrCamere(camera_id, nr);
+        if(exist(cameraId(camera_id))==true) {
+            camere.updateNrCamere(camera_id, nr);
+            System.out.println("Camera a fost updatata. ");
+        }else {
+            System.out.println("Camera nu exista pt a o putea updata.");
+        }
     }
 
     public void afisare(){
@@ -62,7 +94,7 @@ public class CameraController {
                 return camera;
             }
         }
-        return null;
+        return new Camera(-1,"",-1,0);
     }
 
     public List<Camera> cameraTip(String tip){
@@ -75,6 +107,8 @@ public class CameraController {
         }
         return tipCamere;
     }
+
+
 
 
 }

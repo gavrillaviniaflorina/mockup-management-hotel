@@ -252,7 +252,7 @@ public class ViewAdministrator {
         String tip=scanner.nextLine();
         System.out.println("Introduceti numarul de camere de acest tip: ");
         int nr=Integer.parseInt(scanner.nextLine());
-        System.out.println("Introduceti i-ul hotelului: ");
+        System.out.println("Introduceti id-ul hotelului: ");
         int hotel_id=Integer.parseInt(scanner.nextLine());
 
         Camera camera=new Camera(tip,nr,hotel_id);

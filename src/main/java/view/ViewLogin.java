@@ -34,29 +34,34 @@ public class ViewLogin {
 
         System.out.println("Introduceti statusul dvs(ex:admin,client)");
         String status=scanner.nextLine();
-        System.out.println("Introduceti numele dvs:");
-        String nume=scanner.nextLine();
-        System.out.println("Introduceti parola dvs:");
-        String parola=scanner.nextLine();
+        if(status.equals("admin")==false && status.equals("client")==false){
+            System.out.println("Nu ati introdus un status valid.");
+        }else {
+            System.out.println("Introduceti numele dvs:");
+            String nume = scanner.nextLine();
+            System.out.println("Introduceti parola dvs:");
+            String parola = scanner.nextLine();
 
-        if(status.equals("admin")){
-            if(angajati.parola(nume).equals(parola)){
-                Angajat a= angajati.angajat(nume);
-                ViewAdministrator administrator=new ViewAdministrator(a);
-                administrator.play();
-            }else{
-                System.out.println("nume sau parola incorecta!");
-            }
-        }else{
-            if(clienti.parola(nume).equals(parola)){
-                Client c =clienti.client(nume);
-                ViewClient client=new ViewClient(c);
-                client.play();
-            }else{
-                System.out.println("nume sau parola incorecte!");
+            if (status.equals("admin")) {
+                if (angajati.parola(nume)==null || !angajati.parola(nume).equals(parola) ) {
+                    System.out.println("nume sau parola incorecta!");
+                } else {
+                    Angajat a = angajati.angajat(nume);
+                    ViewAdministrator administrator = new ViewAdministrator(a);
+                    administrator.play();
+
+                }
+            } else if (status.equals("client")) {
+                if (clienti.parola(nume)==null || !clienti.parola(nume).equals(parola)) {
+                    System.out.println("nume sau parola incorecte!");
+                } else {
+                    Client c = clienti.client(nume);
+                    ViewClient client = new ViewClient(c);
+                    client.play();
+                   ;
+                }
             }
         }
-
 
     }
 

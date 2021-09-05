@@ -46,7 +46,7 @@ public class AngajatController {
                 return angajat.getParola();
             }
         }
-        return null;
+        return null ;
 
     }
 

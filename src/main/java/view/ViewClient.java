@@ -52,15 +52,12 @@ public class ViewClient {
                     run=false;
                     break;
                 case 1:
-                    clienti.afisare();
-                    break;
-                case 2:
                     facturiClient();
                     break;
-                case 3:
+                case 2:
                     camereClient();
                     break;
-                case 4:
+                case 3:
                     rezervare();
                     break;
                 default:
@@ -75,21 +72,29 @@ public class ViewClient {
     public void facturiClient(){
 
         List<Factura> fact=facturi.toate();
-
+        int ok=0;
         for(Factura factura:fact){
             if(factura.getClient_id()== client.getClient_id()){
                 System.out.println(factura);
+                ok=1;
             }
+        }
+        if(ok==0){
+            System.out.println("Nu aveti facturi.");
         }
     }
 
     public void camereClient(){
         List<Camera> cam=camere.toate();
-
+        int ok=0;
         for(Camera camera: cam){
             if(camera.getNumar()== client.getClient_id()){
                 System.out.println(camera);
+                ok=1;
             }
+        }
+        if(ok==0){
+            System.out.println("Nu ati rezervat nicio camera.");
         }
     }
 

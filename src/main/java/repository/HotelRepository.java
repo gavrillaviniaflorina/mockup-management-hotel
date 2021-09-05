@@ -18,7 +18,7 @@ public class HotelRepository {
         try{
             connection= DriverManager.getConnection(Jdbc,username,password);
             statement= connection.createStatement();
-            System.out.println("S-a conectat");
+         //   System.out.println("S-a conectat");
         }catch (SQLException e){
             e.printStackTrace();
         }
