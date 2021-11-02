@@ -1,12 +1,14 @@
 package controller;
 
 import model.Camera;
+import model.Hotel;
 import repository.CameraRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CameraController {
+
 
     private CameraRepository camere;
 
@@ -108,7 +110,16 @@ public class CameraController {
         return tipCamere;
     }
 
+    public List<Camera> camereleHotelului(int id){
 
+        List<Camera> rooms=new ArrayList<>();
+        for(Camera camera:camere.toateCamerele()){
+            if(camera.getHotel_id()==id){
+                rooms.add(camera);
+            }
+        }
+        return rooms;
+    }
 
 
 }

@@ -40,4 +40,13 @@ public class HotelController {
            System.out.println(hotel);
        }
     }
+
+    public int numeHotel(String nume){
+        for(Hotel hotel: hoteluri.totateHotelurile()){
+            if(hotel.getNume_hotel().equals(nume)){
+                return hotel.getHotel_id();
+            }
+        }
+        return -1;
+    }
 }
